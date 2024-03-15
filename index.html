@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors game</title>
+    <link rel="stylesheet" href="./rock paper scissors.css">
+</head>
+<body> 
+    <div>
+        <h1>Game1</h1>
+        <h2>Computer: <label id="computer"></label></h2>
+        <h2>Player: <label id="player"></label></h2>       
+    </div>
+    <div>
+        <button onclick="c_result('Rock')" id="rock">Rock</button>
+        <button onclick="c_result('Paper')" id="paper">Paper</button>
+        <button onclick="c_result('Scissors')" id="scissors">Scissors</button>
+    </div>
+    <div>
+        <h1>Output: <label id="output"></label></h1>
+    </div>
+    <div>
+        <p>Wins: <span id="wins">0</span></p>
+        <p>Draws: <span id="draws">0</span></p>
+        <p>Losses: <span id="losses">0</span></p>
+    </div>
+    <div>
+        <button id="reset">Reset</button>
+    </div>
+    <script src="./rock paper scissors.js"></script>    
+</body>
+</html>
