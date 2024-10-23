@@ -1,84 +1,97 @@
-/* Reset default margin and padding */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
-/* Center the content */
 body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ecf0f1;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    background-color: #f8f8f8;
-    /* Light background color */
+    margin: 0;
+    padding: 20px;
 }
 
-/* Main container styling */
-div {
-    text-align: center;
-}
-
-/* Heading styling */
 h1 {
-    font-family: Arial, sans-serif;
+    font-size: 2.5em;
+    color: #2980b9;
     margin-bottom: 10px;
 }
 
 h2 {
-    font-family: Arial, sans-serif;
-    margin-top: 20px;
+    font-size: 1.5em;
+    color: #34495e;
 }
 
-/* Button styling */
+/* Flex container for buttons */
+.button-container {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    margin: 20px 0;
+}
+
 button {
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #4CAF50;
-    /* Green button */
+    background-color: #3498db;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1.2em;
     cursor: pointer;
-    font-family: Arial, sans-serif;
+    border-radius: 10px;
+    margin: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    background-color: #45a049;
-    /* Dark green on hover */
+    background-color: #2980b9;
+    transform: translateY(-2px);
 }
 
-/* Output styling */
-#output {
-    font-size: 18px;
-    font-family: Arial, sans-serif;
+.output-container {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Score display styling */
+/* Flex container for stats */
+.stats-container {
+    display: flex;
+    justify-content: space-around; /* Space items evenly */
+    width: 100%; /* Full width for responsiveness */
+    max-width: 600px; /* Limit max width */
+    margin: 20px 0;
+}
+
 p {
-    margin-top: 10px;
-    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+    color: #7f8c8d;
+    margin: 0; /* Remove margin for better alignment */
 }
 
 span {
     font-weight: bold;
+    color: #e74c3c;
+    font-size: 1.5em;
 }
 
-/* Reset button styling */
 #reset {
-    padding: 10px 20px;
-    background-color: #f44336;
-    /* Red button */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: Arial, sans-serif;
+    background-color: #e74c3c;
 }
 
 #reset:hover {
-    background-color: #d32f2f;
-    /* Dark red on hover */
+    background-color: #c0392b;
+}
+
+#output {
+    font-size: 2em;
+    color: #27ae60;
+    font-weight: bold;
 }
