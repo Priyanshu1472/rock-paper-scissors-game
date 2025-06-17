@@ -3,31 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors game</title>
+    <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="./rock paper scissors.css">
 </head>
 <body> 
-    <div>
-        <h1>Game1</h1>
-        <h2>Computer: <label id="computer"></label></h2>
-        <h2>Player: <label id="player"></label></h2>       
+    <div class="game-container">
+        <h1>Rock Paper Scissors</h1>
+        
+        <div class="scores">
+            <div class="score-item">
+                <h2>Computer:</h2>
+                <label id="computer">-</label>
+            </div>
+            <div class="score-item">
+                <h2>Player:</h2>
+                <label id="player">-</label>
+            </div>
+        </div>
+        
+        <div class="buttons-container">
+            <button class="game-button" onclick="c_result('Rock')" id="rock">
+                <span>Rock</span>
+            </button>
+            
+            <button class="game-button" onclick="c_result('Paper')" id="paper">
+                <span>Paper</span>
+            </button>
+            
+            <button class="game-button" onclick="c_result('Scissors')" id="scissors">
+                <span>Scissors</span>
+            </button>
+        </div>
+        
+        <div class="output">
+            <h1>Result: <label id="output">Make your choice!</label></h1>
+        </div>
+        
+        <div class="stats">
+            <p>Wins<span id="wins">0</span></p>
+            <p>Draws<span id="draws">0</span></p>
+            <p>Losses<span id="losses">0</span></p>
+        </div>
+        
+        <div class="reset-container">
+            <button id="reset" onclick="resetGame()">Reset Game</button>
+        </div>
     </div>
-    <div>
-        <button onclick="c_result('Rock')" id="rock">Rock</button>
-        <button onclick="c_result('Paper')" id="paper">Paper</button>
-        <button onclick="c_result('Scissors')" id="scissors">Scissors</button>
-    </div>
-    <div>
-        <h1>Output: <label id="output"></label></h1>
-    </div>
-    <div>
-        <p>Wins: <span id="wins">0</span></p>
-        <p>Draws: <span id="draws">0</span></p>
-        <p>Losses: <span id="losses">0</span></p>
-    </div>
-    <div>
-        <button id="reset">Reset</button>
-    </div>
-    <script src="./rock paper scissors.js"></script>    
+
+    <script>
+        let wins = 0;
+        let draws = 0;
+        let losses = 0;
+
+        function c_result(playerChoice) {
+            const choices = ['Rock', 'Paper', 'Scissors'];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+            
+            document.getElementById('computer').textContent = computerChoice;
+            document.getElementById('player').textContent = playerChoice;
+            
+            let result = '';
+            
+            if (playerChoice === computerChoice) {
+                result = "It's a Draw!";
+                draws++;
+                document.getElementById('draws').textContent = draws;
+            } else if (
+                (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
+                (playerChoice === 'Paper' && computerChoice === 'Rock') ||
+                (playerChoice === 'Scissors' && computerChoice === 'Paper')
+            ) {
+                result = 'You Win!';
+                wins++;
+                document.getElementById('wins').textContent = wins;
+            } else {
+                result = 'You Lose!';
+                losses++;
+                document.getElementById('losses').textContent = losses;
+            }
+            
+            document.getElementById('output').textContent = result;
+        }
+
+        function resetGame() {
+            wins = 0;
+            draws = 0;
+            losses = 0;
+            
+            document.getElementById('wins').textContent = '0';
+            document.getElementById('draws').textContent = '0';
+            document.getElementById('losses').textContent = '0';
+            document.getElementById('computer').textContent = '-';
+            document.getElementById('player').textContent = '-';
+            document.getElementById('output').textContent = 'Make your choice!';
+        }
+    </script>
 </body>
 </html>
